@@ -1,3 +1,4 @@
+
 members = [
     {
         fname: 'John',
@@ -15,9 +16,23 @@ const handlingForms = {
 
     data() {
         return {
-            members: window.members
+            members: window.members,
+            newMember: {
+
+            }
         }
     },
+
+    methods: {
+        addMember: function() {
+            if (!(this.newMember.instrument && this.newMember.fname && this.newMember.lname)) {
+                alert("All fields must be filled")
+            } else {
+                this.members.push(this.newMember);
+                this.newMember = {};
+            }
+        }
+    }
 
 };
 
